@@ -3,3 +3,4 @@ dist
 .env
 deploy.js
 yarn.lock
+package-lock.json

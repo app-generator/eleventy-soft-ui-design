@@ -1,22 +1,22 @@
-const pluginRss = require('@11ty/eleventy-plugin-rss');
-const pluginNavigation = require('@11ty/eleventy-navigation');
-const markdownIt = require('markdown-it');
-const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
+const pluginRss = require('@11ty/eleventy-plugin-rss')
+const pluginNavigation = require('@11ty/eleventy-navigation')
+const markdownIt = require('markdown-it')
+const lazyImagesPlugin = require('eleventy-plugin-lazyimages')
 
 const filters = require('./utils/filters.js')
 const transforms = require('./utils/transforms.js')
 const shortcodes = require('./utils/shortcodes.js')
 const iconsprite = require('./utils/iconsprite.js')
 
-module.exports = function(config) {
+module.exports = function (config) {
     // Plugins
     config.addPlugin(pluginRss)
     config.addPlugin(pluginNavigation)
 
     // Lazu=y load on images
-    module.exports = function(eleventyConfig) {
-        eleventyConfig.addPlugin(lazyImagesPlugin);
-    };
+    module.exports = function (eleventyConfig) {
+        eleventyConfig.addPlugin(lazyImagesPlugin)
+    }
 
     // Filters
     Object.keys(filters).forEach((filterName) => {
@@ -57,7 +57,7 @@ module.exports = function(config) {
     // Pass-through files
     config.addPassthroughCopy('src/robots.txt')
     config.addPassthroughCopy('src/site.webmanifest')
-    config.addPassthroughCopy('src/static')
+    config.addPassthroughCopy('src/assets')
 
     // Deep-Merge
     config.setDataDeepMerge(true)

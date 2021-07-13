@@ -57,6 +57,7 @@ module.exports = function (config) {
     // Pass-through files
     config.addPassthroughCopy('src/robots.txt')
     config.addPassthroughCopy('src/site.webmanifest')
+    config.addPassthroughCopy({ 'src/assets/js': '/assets/scripts' })
     config.addPassthroughCopy({ 'src/assets/img': '/img' })
     config.addPassthroughCopy({ 'src/assets/favicon': '/' })
     config.addPassthroughCopy({ 'src/assets/fonts': '/fonts' })

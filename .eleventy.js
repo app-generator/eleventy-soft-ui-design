@@ -37,7 +37,7 @@ module.exports = function (config) {
     config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
 
     // Asset Watch Targets
-    config.addWatchTarget('./src/static')
+    config.addWatchTarget('./src/assets')
 
     // Markdown
     config.setLibrary(
@@ -57,7 +57,9 @@ module.exports = function (config) {
     // Pass-through files
     config.addPassthroughCopy('src/robots.txt')
     config.addPassthroughCopy('src/site.webmanifest')
-    config.addPassthroughCopy('src/assets')
+    config.addPassthroughCopy({ 'src/assets/img': '/img' })
+    config.addPassthroughCopy({ 'src/assets/favicon': '/' })
+    config.addPassthroughCopy({ 'src/assets/fonts': '/fonts' })
 
     // Deep-Merge
     config.setDataDeepMerge(true)

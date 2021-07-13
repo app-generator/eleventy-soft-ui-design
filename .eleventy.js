@@ -13,7 +13,7 @@ module.exports = function (config) {
     config.addPlugin(pluginRss)
     config.addPlugin(pluginNavigation)
 
-    // Lazu=y load on images
+    // Lazy load on images
     module.exports = function (eleventyConfig) {
         eleventyConfig.addPlugin(lazyImagesPlugin)
     }

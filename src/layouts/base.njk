@@ -36,7 +36,9 @@
     </head>
     <body>
         <main>
+            {% include "navbar.njk" %}
             {{ content | safe }}
+            {% include "footer.njk" %}
         </main>
 
         {# Import Core JS Dependencies #}

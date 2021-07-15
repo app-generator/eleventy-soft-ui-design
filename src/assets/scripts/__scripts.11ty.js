@@ -47,7 +47,7 @@ module.exports = class {
         }
 
         return {
-            permalink: `/assets/scripts/${ENTRY_FILE_NAME}`,
+            permalink: `/assets/js/${ENTRY_FILE_NAME}`,
             eleventyExcludeFromCollections: true,
             webpackConfig
         }

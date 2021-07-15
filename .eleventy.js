@@ -60,8 +60,8 @@ module.exports = function (config) {
     config.addPassthroughCopy({ 'src/assets/favicon': '/' })
     config.addPassthroughCopy({ 'src/assets/fonts': '/fonts' })
     config.addPassthroughCopy({ 'src/assets/img': 'assets/img' })
-    config.addPassthroughCopy({ 'src/assets/css': '/assets/styles' })
-    config.addPassthroughCopy({ 'src/assets/js': '/assets/scripts' })
+    config.addPassthroughCopy({ 'src/assets/css': '/assets/css' })
+    config.addPassthroughCopy({ 'src/assets/js': '/assets/js' })
 
     // Deep-Merge
     config.setDataDeepMerge(true)

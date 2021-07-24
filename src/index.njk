@@ -6901,7 +6901,7 @@ title: Home
   </section>
   <!-- -------- START Content Presentation Docs ------- -->
   <div class="container mt-sm-5">
-    <div class="page-header section-height-50 my-sm-3 mb-3 border-radius-xl"
+    <div class="page-header min-vh-50 my-sm-3 mb-3 border-radius-xl"
       style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/flower.jpg');">
       <span class="mask bg-gradient-dark"></span>
       <div class="container">
@@ -7132,6 +7132,7 @@ title: Home
       </div>
     </div>
   </section>
+
   <section class="py-sm-7" id="download-soft-ui">
     <div class="bg-gradient-dark position-relative m-3 border-radius-xl overflow-hidden">
       <img src="./assets/img/shapes/waves-white.svg" alt="pattern-lines"
@@ -7265,3 +7266,42 @@ title: Home
       </div>
     </div>
   </div>
+
+  <script src="./assets/js/plugins/countup.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/prism.min.js"></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+  <script src="./assets/js/plugins/rellax.min.js"></script>
+  <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+  <script src="./assets/js/plugins/tilt.min.js"></script>
+  <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+  <script src="./assets/js/plugins/parallax.min.js"></script>
+
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>

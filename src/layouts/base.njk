@@ -36,9 +36,7 @@
     </head>
     <body>
         <main>
-            {% include "navbar.njk" %}
             {{ content | safe }}
-            {% include "footer.njk" %}
         </main>
 
         {# Import Core JS Dependencies #}
@@ -46,12 +44,5 @@
 
         {# Import Custom JS #}
         <script type="text/javascript" src="{{ '/assets/js/main.js' | url }}"></script>
-        <script type="text/javascript">
-            if ('serviceWorker' in navigator) {
-                navigator
-                    .serviceWorker
-                    .register('/serviceworker.js')
-            }
-        </script>
     </body>
 </html>

@@ -1,6 +1,6 @@
 {
     "author": "AppSeed",
-    "name": "boilerplate-code-11ty",
+    "name": "eleventy-soft-ui-design",
     "version": "0.0.1",
     "description": "11ty Starter - Template Project",
     "browserslist": [
@@ -17,7 +17,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/app-generator/boilerplate-code-11ty"
+        "url": "https://github.com/app-generator/eleventy-soft-ui-design"
     },
     "initial-author": "Max Böck",
     "initial-repository": {

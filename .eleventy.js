@@ -1,46 +1,49 @@
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation = require('@11ty/eleventy-navigation')
 const markdownIt = require('markdown-it')
-const lazyImagesPlugin = require('eleventy-plugin-lazyimages')
+const PrismicDOM = require('prismic-dom')
 
 const filters = require('./utils/filters.js')
 const transforms = require('./utils/transforms.js')
 const shortcodes = require('./utils/shortcodes.js')
 const iconsprite = require('./utils/iconsprite.js')
 
-module.exports = function (config) {
+module.exports = function (eleventyConfig) {
     // Plugins
-    config.addPlugin(pluginRss)
-    config.addPlugin(pluginNavigation)
-
-    // Lazy load on images
-    module.exports = function (eleventyConfig) {
-        eleventyConfig.addPlugin(lazyImagesPlugin)
-    }
+    eleventyConfig.addPlugin(pluginRss)
+    eleventyConfig.addPlugin(pluginNavigation)
 
     // Filters
     Object.keys(filters).forEach((filterName) => {
-        config.addFilter(filterName, filters[filterName])
+        eleventyConfig.addFilter(filterName, filters[filterName])
+    })
+
+    eleventyConfig.addNunjucksFilter('richText', function (value) {
+        return PrismicDOM.RichText.asHtml(value)
+    })
+
+    eleventyConfig.addNunjucksFilter('JSONstringify', function (value) {
+        return `<pre>${JSON.stringify(value, undefined, 2)}</pre>`
     })
 
     // Transforms
     Object.keys(transforms).forEach((transformName) => {
-        config.addTransform(transformName, transforms[transformName])
+        eleventyConfig.addTransform(transformName, transforms[transformName])
     })
 
     // Shortcodes
     Object.keys(shortcodes).forEach((shortcodeName) => {
-        config.addShortcode(shortcodeName, shortcodes[shortcodeName])
+        eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName])
     })
 
     // Icon Sprite
-    config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
+    eleventyConfig.addNunjucksAsyncShortcode('iconsprite', iconsprite)
 
     // Asset Watch Targets
-    config.addWatchTarget('./src/assets')
+    eleventyConfig.addWatchTarget('./src/assets')
 
     // Markdown
-    config.setLibrary(
+    eleventyConfig.setLibrary(
         'md',
         markdownIt({
             html: true,
@@ -51,20 +54,20 @@ module.exports = function (config) {
     )
 
     // Layouts
-    config.addLayoutAlias('base', 'base.njk')
-    config.addLayoutAlias('post', 'post.njk')
+    eleventyConfig.addLayoutAlias('base', 'base.njk')
+    eleventyConfig.addLayoutAlias('post', 'post.njk')
 
     // Pass-through files
-    config.addPassthroughCopy('src/robots.txt')
-    config.addPassthroughCopy('src/site.webmanifest')
-    config.addPassthroughCopy({ 'src/assets/favicon': '/' })
-    config.addPassthroughCopy({ 'src/assets/fonts': '/fonts' })
-    config.addPassthroughCopy({ 'src/assets/img': 'assets/img' })
-    config.addPassthroughCopy({ 'src/assets/css': '/assets/css' })
-    config.addPassthroughCopy({ 'src/assets/js': '/assets/js' })
+    eleventyConfig.addPassthroughCopy('src/robots.txt')
+    eleventyConfig.addPassthroughCopy('src/site.webmanifest')
+    eleventyConfig.addPassthroughCopy({ 'src/assets/favicon': '/' })
+    eleventyConfig.addPassthroughCopy({ 'src/assets/fonts': '/fonts' })
+    eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' })
+    eleventyConfig.addPassthroughCopy({ 'src/assets/css': '/assets/css' })
+    eleventyConfig.addPassthroughCopy({ 'src/assets/js': '/assets/js' })
 
     // Deep-Merge
-    config.setDataDeepMerge(true)
+    eleventyConfig.setDataDeepMerge(true)
 
     // Base Config
     return {

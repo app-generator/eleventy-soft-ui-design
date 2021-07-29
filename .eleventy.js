@@ -18,8 +18,12 @@ module.exports = function (eleventyConfig) {
         eleventyConfig.addFilter(filterName, filters[filterName])
     })
 
-    eleventyConfig.addNunjucksFilter('richText', function (value) {
+    eleventyConfig.addNunjucksFilter('prismicHtml', function (value) {
         return PrismicDOM.RichText.asHtml(value)
+    })
+
+    eleventyConfig.addNunjucksFilter('prismicText', function (value) {
+        return PrismicDOM.RichText.asText(value)
     })
 
     eleventyConfig.addNunjucksFilter('JSONstringify', function (value) {

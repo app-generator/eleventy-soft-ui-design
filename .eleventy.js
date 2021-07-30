@@ -26,6 +26,15 @@ module.exports = function (eleventyConfig) {
         return PrismicDOM.RichText.asText(value)
     })
 
+    eleventyConfig.addNunjucksFilter('prismicImage', function ({ url, alt }) {
+        const altAttribute = (altText) => {
+            if (!altText) return ''
+            return `alt="${altText}"`
+        }
+
+        return `<img src="${url}" ${altAttribute(alt)} />`
+    })
+
     eleventyConfig.addNunjucksFilter('JSONstringify', function (value) {
         return `<pre>${JSON.stringify(value, undefined, 2)}</pre>`
     })

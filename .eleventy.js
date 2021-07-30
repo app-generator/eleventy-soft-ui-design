@@ -3,6 +3,7 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const markdownIt = require('markdown-it')
 const PrismicDOM = require('prismic-dom')
 const { DateTime } = require('luxon')
+const readingTime = require('eleventy-plugin-reading-time')
 
 const filters = require('./utils/filters.js')
 const transforms = require('./utils/transforms.js')
@@ -13,6 +14,7 @@ module.exports = function (eleventyConfig) {
     // Plugins
     eleventyConfig.addPlugin(pluginRss)
     eleventyConfig.addPlugin(pluginNavigation)
+    eleventyConfig.addPlugin(readingTime)
 
     // Filters
     Object.keys(filters).forEach((filterName) => {

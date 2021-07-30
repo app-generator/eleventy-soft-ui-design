@@ -35,6 +35,10 @@ module.exports = function (eleventyConfig) {
         return `<img src="${url}" ${altAttribute(alt)} />`
     })
 
+    eleventyConfig.addNunjucksFilter('prismicDate', function (dateString) {
+        return PrismicDOM.Date(dateString)
+    })
+
     eleventyConfig.addNunjucksFilter('JSONstringify', function (value) {
         return `<pre>${JSON.stringify(value, undefined, 2)}</pre>`
     })

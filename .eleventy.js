@@ -39,6 +39,11 @@ module.exports = function (eleventyConfig) {
         return `<pre>${JSON.stringify(value, undefined, 2)}</pre>`
     })
 
+    eleventyConfig.addFilter('excerpt', (post) => {
+        const content = post.replace(/(<([^>]+)>)/gi, '')
+        return content.substr(0, content.lastIndexOf(' ', 200)) + '...'
+    })
+
     // Transforms
     Object.keys(transforms).forEach((transformName) => {
         eleventyConfig.addTransform(transformName, transforms[transformName])

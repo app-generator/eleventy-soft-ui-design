@@ -12,22 +12,6 @@ const transforms = require('./utils/transforms.js')
 const shortcodes = require('./utils/shortcodes.js')
 const iconsprite = require('./utils/iconsprite.js')
 
-const Elements = PrismicDOM.RichText.Elements
-
-const htmlSerializer = function (type, element) {
-    switch (type) {
-        case Elements.embed:
-            return `
-        <div data-oembed="${element.oembed.embed_url}"
-          data-oembed-type="${element.oembed.type}"
-          data-oembed-provider="${element.oembed.provider_name}">
-          ${element.oembed.html}
-        </div>`
-        default:
-            return null
-    }
-}
-
 module.exports = function (eleventyConfig) {
     // Plugins
     eleventyConfig.addPlugin(pluginRss)
@@ -40,11 +24,7 @@ module.exports = function (eleventyConfig) {
     })
 
     eleventyConfig.addNunjucksFilter('prismicHtml', function (value) {
-        return PrismicDOM.RichText.asHtml(
-            value,
-            (doc) => doc.uid,
-            htmlSerializer
-        )
+        return PrismicDOM.RichText.asHtml(value)
     })
 
     eleventyConfig.addNunjucksFilter('prismicText', function (value) {

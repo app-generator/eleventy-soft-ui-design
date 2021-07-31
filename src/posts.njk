@@ -1,0 +1,27 @@
+---
+pagination:
+  data: prismicData.blogposts
+  size: 1
+  alias: post
+  addAllPagesToCollection: true
+layout: base.njk
+permalink: "/blog/{{ post.uid | slug }}/"
+templateEngineOverride: md, njk
+eleventyComputed:
+  title: "{{ post.data.title | prismicText }}"
+---
+<style>
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+{% include "navbar-light.njk" %}
+
+<div class="container">
+  <div>{{ post.data.body | prismicHtml | readingTime }} Read Time</div>
+  <article>{{ post.data.body | prismicHtml }}</article>
+</div>

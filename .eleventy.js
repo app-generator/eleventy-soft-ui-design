@@ -4,6 +4,8 @@ const markdownIt = require('markdown-it')
 const PrismicDOM = require('prismic-dom')
 const { DateTime } = require('luxon')
 const readingTime = require('eleventy-plugin-reading-time')
+const Image = require('@11ty/eleventy-img')
+const sharp = require('sharp')
 
 const filters = require('./utils/filters.js')
 const transforms = require('./utils/transforms.js')
@@ -63,6 +65,54 @@ module.exports = function (eleventyConfig) {
     // Shortcodes
     Object.keys(shortcodes).forEach((shortcodeName) => {
         eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName])
+    })
+
+    eleventyConfig.addNunjucksAsyncShortcode('Image', async (src, alt) => {
+        if (!alt) {
+            throw new Error(`Missing \`alt\` on myImage from: ${src}`)
+        }
+
+        let stats = await Image(src, {
+            widths: [25, 320, 640, 960, 1200, 1800, 2400],
+            formats: ['jpeg', 'webp'],
+            urlPath: '/images/',
+            outputDir: './dist/images/'
+        })
+
+        let lowestSrc = stats['jpeg'][0]
+
+        const placeholder = await sharp(lowestSrc.outputPath)
+            .resize({ fit: sharp.fit.inside })
+            .blur()
+            .toBuffer()
+
+        const base64Placeholder = `data:image/png;base64,${placeholder.toString(
+            'base64'
+        )}`
+
+        const srcset = Object.keys(stats).reduce(
+            (acc, format) => ({
+                ...acc,
+                [format]: stats[format].reduce(
+                    (_acc, curr) => `${_acc} ${curr.srcset} ,`,
+                    ''
+                )
+            }),
+            {}
+        )
+
+        const source = `<source type="image/webp" data-srcset="${srcset['webp']}" >`
+
+        const img = `<img
+                        class="img-fluid lazy"
+                        alt="${alt}"
+                        src="${base64Placeholder}"
+                        data-src="${lowestSrc.url}"
+                        data-sizes='(min-width: 1024px) 1024px, 100vw'
+                        data-srcset="${srcset['jpeg']}"
+                        width="${lowestSrc.width}"
+                        height="${lowestSrc.height}">`
+        return `<div class="image-wrapper"><picture> ${source} ${img} </picture></div>`
     })
 
     // Icon Sprite

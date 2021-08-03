@@ -1,101 +1,78 @@
-# eleventy-soft-ui-design
+# Eleventy Soft UI Design
 
-> Eleventy (11ty) seed project - Features:
+![Thumbnail Image](/thumbnail.jpg)
 
-<br />
+Eleventy Soft UI Design is an Eleventy adaptation of Soft UI Design System (a user-friendly and beautiful design system based on Bootstrap 5), including a Blog system that uses Prismic CMS for content management.
 
-- UI Kit: **Pixel Lite** (Free Version) by **Themesberg**
-- Render Engine: Nunjunks / Markdown (for blog posts)
-- CSS Pipeline (Sass, CleanCSS)
-- JS Bundling (Webpack)
-- SVG Icon Sprite Generation
-- Critical CSS, HTML Minification
+> Soft UI Design System is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using SASS files and classes.
+>
+> You will save a lot of time going from prototyping to full-functional code because all elements are implemented. This Freebie Bootstrap 5 UI Kit is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
 
 <br />
 
-**Credits**
-
-- Initially forked from [Eleventastic](http://github.com/maxboeck/eleventastic) / [Max Böck](https://github.com/maxboeck)
-- More **11ty** inspiration from: [EleventyOne](https://github.com/philhawksworth/eleventyone), [Supermaya](https://github.com/MadeByMike/supermaya) 
-
+## [Live demo]()
 
 <br />
 
-## Build from sources
+## Features:
 
-```bash
-$ # Clone the sources
-$ git clone https://github.com/app-generator/boilerplate-code-11ty.gti
-$ cd jinja-boilerplate-code-11ty
-$
-$ # Install modules
-$ npm install # OR `yarn`
-$
-$ # Start for development
-$ npm start # OR `yarn start`
-$
-$ # Access the project in browser:
-$ # http://127.0.0.1:8080/ 
-$
-$ # Production Build
-$ npm build # OR `yarn build`
-```
+-   Eleventy Soft UI Design System
+-   Prismic CMS for blog posts
+-   CSS Pipeline (Sass, CleanCSS)
+-   JS Bundling (Webpack)
+-   SVG Icon Sprite Generation
+-   Critical CSS, HTML Minification
+-   Includes a assets folder for static files (images, fonts etc.)
+
+<br />
+
+## Documentaion
+
+The documentation for Eleventy Soft UI Design is hosted [here]().
+
+<br />
+
+## License
+
+This project is licensed under the MIT License.
 
 <br />
 
 ## Codebase structure
 
-```bash
-< PROJECT ROOT >
-   |
-   |-- src/
-   |    |-- data/
-   |    |    |-- meta.json            # Provides META information 
-   |    |    |-- app.json             # Provides APP information
-   |    |
-   |    |-- includes/                 # Page chunks, components
-   |    |    |-- navigation.html      # Top bar
-   |    |    |-- sidebar.html         # Left sidebar
-   |    |    |-- scripts.html         # JS scripts common to all pages
-   |    |    |-- footer.html          # The common footer
-   |    |
-   |    |-- layouts/                  # App Layouts (the master pages)
-   |    |    |-- base.html            # Used by common pages like index, UI
-   |    |    |-- base-fullscreen.html # Used by auth pages (login, register)
-   |    |   
-   |    |-- index.html                # The default page
-   |    |-- *.html                    # All other pages provided by the UI Kit
-   |
-   |-- utils/                         # JS Helpers
-   |
-   |-- .eleventy.js                   # 11ty Config
-   |-- netlify.toml                   # Netlify deployer
-   |
-   |-- ************************************************************************
 ```
-
-<br />
-
-## Deploy a fork of this template to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/app-generator/boilerplate-code-11ty)
-
-## CSS
-
-Styling works with Sass. The main index file is in `src/static/assets/styles/main.scss`. Import any SCSS code you want in there; it will be processed and optimized. The output is in `dist/static/assets/styles/main.css`
-
-## JS
-
-Javascript can be written in ES6 syntax. The main index file is in `src/static/assets/scripts/main.js`. It will be transpiled to ES5 with babel, bundled together with webpack, and minified in production. The output is in `dist/static/assets/scripts/main.js`
-
-## SVG Icons
-
-All SVG files added to `src/static/assets/icons` will be bundled into a `symbol` sprite file. The SVG filename will then be used as the symbol identifier and the icon can be used as a shortcode.
-
-For example, if you have a `github.svg` file in that folder, you can display it anywhere by using `{% icon "github" %}` in your templates.
-
-## Critical CSS
-
-Currently, critical CSS will only be inlined in the head of the homepage. This is done by using the [critical](https://github.com/addyosmani/critical) package in an automatic transform.
+eleventy-soft-ui-design
+    ├── src/
+    │ ├── assets/
+    │ │ ├── css/
+    │ │ ├── favicon/
+    │ │ ├── fonts/
+    │ │ ├── img/
+    │ │ ├── js/
+    │ │ ├── scripts/modules/app.js
+    │ │ └── scss/app.scss
+    │ ├── data/
+    │ │ ├── app.json
+    │ │ ├── meta.json
+    │ │ └── prismicData.js
+    │ ├── includes/
+    │ ├── layouts/
+    │ ├── pages/
+    │ ├── sections/
+    │ ├── 404.njk
+    │ ├── feed.njk
+    │ ├── index.njk
+    │ ├── blog.njk
+    │ ├── presentation.njk
+    │ ├── robots.njk
+    │ └── sitemap.njk
+		├── utils/
+    ├── .eleventy.js
+    ├── .env.sample
+    ├── .gitignore
+    ├── .prettierrc
+    ├──  netlify.toml
+    └──  package.js
+```
 
 <br />

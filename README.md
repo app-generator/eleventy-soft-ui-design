@@ -20,6 +20,10 @@
 
 <br />
 
+![Eleventy Soft UI Design - Open-source SSG starter provided by AppSeed in 11ty on top of Soft UI Design.](https://user-images.githubusercontent.com/51070104/128602712-4b38f18d-2154-4899-a796-aec0f7435329.png)
+
+<br />
+
 ## Compile from Sources
 
 > **Step #1** - Clone this repository

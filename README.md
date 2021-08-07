@@ -1,40 +1,63 @@
 # Eleventy Soft UI Design
 
-![Thumbnail Image](/thumbnail.jpg)
+[Eleventy Soft UI](https://appseed.us/product/eleventy-soft-ui) is an Eleventy adaptation of Soft UI Design System (a user-friendly and beautiful design system based on Bootstrap 5), including a Blog system that uses Prismic CMS for content management. Soft UI Design System is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using SASS files and classes.
 
-Eleventy Soft UI Design is an Eleventy adaptation of Soft UI Design System (a user-friendly and beautiful design system based on Bootstrap 5), including a Blog system that uses Prismic CMS for content management.
+> Features:
 
-> Soft UI Design System is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using SASS files and classes.
->
-> You will save a lot of time going from prototyping to full-functional code because all elements are implemented. This Freebie Bootstrap 5 UI Kit is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
-
-<br />
-
-## [Live demo]()
-
-<br />
-
-## Features:
-
--   Eleventy Soft UI Design System
--   Prismic CMS for blog posts
--   CSS Pipeline (Sass, CleanCSS)
--   JS Bundling (Webpack)
--   SVG Icon Sprite Generation
--   Critical CSS, HTML Minification
--   Includes a assets folder for static files (images, fonts etc.)
+- UI: [Soft UI Design System](https://bit.ly/3v6JYIe) crafted by **Creative-Tim**
+- **Prismic CMS** for blog posts
+- CSS Pipeline (Sass, CleanCSS)
+- JS Bundling (Webpack)
+- SVG Icon Sprite Generation
+- Critical CSS, HTML Minification
 
 <br />
 
-## Documentaion
+> Links
 
-The documentation for Eleventy Soft UI Design is hosted [here]().
+- [Eleventy Soft UI](https://appseed.us/product/eleventy-soft-ui) - product page
+- [Eleventy Soft UI](https://eleventy-soft-ui.appseed-srv1.com/) - LIVE Demo
 
 <br />
 
-## License
+## Compile from Sources
 
-This project is licensed under the MIT License.
+> **Step #1** - Clone this repository
+
+```bash
+$ git clone https://github.com/app-generator/eleventy-soft-ui-design.git
+$ cd eleventy-soft-ui-design 
+```
+
+<br />
+
+> **Step #2** - Install modules via NPM or Yarn
+
+```bash
+$ npm i
+// OR
+$ yarn
+```
+
+<br />
+
+> **Step #3** - Configure [Prismic](http://prismic.io/) API Node
+
+Rename `.env.sample` to `.env` and specify the `PRISMIC_REPOSITORY_NAME`. In case you are not familiar with `Prismic`, feel free to use the `DEMO API` provided by AppSeed: `https://eleventy-soft-ui-design.prismic.io/api/v2`
+
+```env
+PRISMIC_REPOSITORY_NAME=YOUR_PRISMIC_API_URL
+```
+
+<br />
+
+> **Step #4** - Start project in development mode
+
+```bash
+$ yarn start
+```
+
+Once the project is compiled and the content is pulled from `Prismic`, the project can be visited in the browser: `http://localhost:8080`.
 
 <br />
 
@@ -76,3 +99,6 @@ eleventy-soft-ui-design
 ```
 
 <br />
+
+---
+[Eleventy Soft UI](https://appseed.us/product/eleventy-soft-ui) - provided by AppSeed [App Generator](https://appseed.us)

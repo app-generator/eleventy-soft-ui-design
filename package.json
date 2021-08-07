@@ -1,7 +1,7 @@
 {
     "author": "AppSeed",
     "name": "eleventy-soft-ui-design",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "11ty Starter - Template Project",
     "browserslist": [
         "defaults"

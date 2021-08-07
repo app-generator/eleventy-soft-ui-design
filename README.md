@@ -1,6 +1,6 @@
 # Eleventy Soft UI Design
 
-[Eleventy Soft UI](https://appseed.us/product/eleventy-soft-ui) is an Eleventy adaptation of Soft UI Design System (a user-friendly and beautiful design system based on Bootstrap 5), including a Blog system that uses Prismic CMS for content management. Soft UI Design System is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using SASS files and classes.
+[Eleventy Soft UI](https://appseed.us/product/eleventy-soft-ui) is an Eleventy adaptation of **Soft UI Design System** (a user-friendly and beautiful design system based on Bootstrap 5), including a Blog system that uses Prismic CMS for content management. **Soft UI Design System** is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using SASS files and classes.
 
 > Features:
 
